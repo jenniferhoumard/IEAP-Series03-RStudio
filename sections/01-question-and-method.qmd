@@ -1,0 +1,15 @@
+
+## Think before coding
+
+### Scientific question
+
+### How to visualize the effect of difficulty?
+
+### How to test whether there is a significant difference?
+
+### How to report the results?
+
+
+## What libraries are required to answer the above questions?
+
+### Packages used

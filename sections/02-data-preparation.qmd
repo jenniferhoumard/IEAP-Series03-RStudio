@@ -1,0 +1,10 @@
+
+### Import and inspect the data
+
+### Check GROUP and ID
+
+### Check repetitions
+
+### Check participants by GROUP
+
+### Create the cleaned dataset

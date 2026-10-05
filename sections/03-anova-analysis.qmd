@@ -1,0 +1,8 @@
+
+### Prepare the data for ANOVA
+
+### Run the ANOVA
+
+### Interpret the ANOVA results
+
+### Plot the GROUP × ID interaction

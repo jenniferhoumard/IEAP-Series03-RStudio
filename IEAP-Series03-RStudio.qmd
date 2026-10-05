@@ -1,0 +1,43 @@
+---
+title: "IEAP RStudio Series 03"
+subtitle: "Data Wrangling and ANOVA"
+
+author:
+  - name: "Jennifer HOUMARD"
+  - name: "Valentin BALBINE"
+  - name: "Shakir NASIR"
+
+date: 12/10/2026
+date-format: "DD MMMM YYYY"
+
+format:
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+---
+
+```{r}
+library(tidyverse)
+library(ez)
+```
+
+# ANOVA: Analysis of Variance
+
+## Think before coding
+
+{{< include sections/01-question-and-method.qmd >}}
+
+## Data reorganization
+
+{{< include sections/02-data-preparation.qmd >}}
+
+{{< include sections/03-anova-analysis.qmd >}}
+
+## Run the linear regression by GROUP
+
+{{< include sections/04-regression-and-figure.qmd >}}
+
+## Discuss the differences with the article
+
+{{< include sections/05-discussion.qmd >}}

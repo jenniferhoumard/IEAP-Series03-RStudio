@@ -1,0 +1,12 @@
+
+## Run the linear regression by GROUP
+
+### Regression equations
+
+
+## Save a graph in a PDF file for publication
+
+### Create the publication figure
+
+
+## Export the graph as a PDF file for publication
