@@ -1,8 +1,10 @@
 
-### Prepare the data for ANOVA
+### ANOVA analysis
 
-### Run the ANOVA
+#### Prepare the data for ANOVA
 
-### Interpret the ANOVA results
+#### Run the ANOVA
 
-### Plot the GROUP × ID interaction
+#### Interpret the ANOVA results
+
+#### Plot the GROUP × ID interaction

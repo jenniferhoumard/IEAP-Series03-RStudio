@@ -7,7 +7,7 @@ author:
   - name: "Valentin BALBINE"
   - name: "Shakir NASIR"
 
-date: 12/10/2026
+date: 10/12/2026
 date-format: "DD MMMM YYYY"
 
 format:
@@ -15,18 +15,29 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
+    include-in-header:
+      text: |
+        \usepackage{tocloft}
+        \setlength{\cftbeforesecskip}{2pt}
+        \setlength{\cftbeforesubsecskip}{0pt}
+        \setlength{\cftbeforesubsubsecskip}{0pt}
 ---
 
 ```{r}
+#| message: false
+#| warning: false
+
 library(tidyverse)
 library(ez)
 ```
 
+GitHub repository: <https://github.com/jenniferhoumard/IEAP-Series03-RStudio>
+
+
 # ANOVA: Analysis of Variance
 
-## Think before coding
-
 {{< include sections/01-question-and-method.qmd >}}
+
 
 ## Data reorganization
 
@@ -34,10 +45,22 @@ library(ez)
 
 {{< include sections/03-anova-analysis.qmd >}}
 
-## Run the linear regression by GROUP
 
 {{< include sections/04-regression-and-figure.qmd >}}
 
-## Discuss the differences with the article
-
 {{< include sections/05-discussion.qmd >}}
+
+
+# Git Workflow Strategy
+
+
+# Challenges and Lessons Learned
+
+
+# Data Sources
+
+
+# Scientific References
+
+
+# Grading Checklist

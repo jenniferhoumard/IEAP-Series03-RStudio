@@ -1,10 +1,12 @@
 
-### Import and inspect the data
+### Data preparation
 
-### Check GROUP and ID
+#### Import and inspect the data
 
-### Check repetitions
+#### Check GROUP × ID completeness
 
-### Check participants by GROUP
+#### Check repetitions
 
-### Create the cleaned dataset
+#### Check participants by GROUP
+
+#### Create the cleaned dataset
