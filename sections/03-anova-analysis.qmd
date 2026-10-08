@@ -27,7 +27,9 @@ anova_tab
 
 **ID effect** : The two levels of ID (ID1, ID2) were compared to each other. The ANOVA results showed a significant effect of ID on movement time (F(1, 27) = 5.67, p = 0.024). This indicates that the mean movement time differed significantly between the two levels of ID. When the ID increased, the movement time increased as well.
 
+**Crossed effect (GROUP × ID) : ** The interaction between GROUP and ID was the most significant (F(2, 27) = 3.45, p = 0.045). This indicates that the effect of ID on movement time differed between the three groups and was way more important on  the stroke group (pp). In other words, the difference in mean movement time between ID1 and ID2 was not the same for all groups.
 
+In conclusion, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
 
 
 
