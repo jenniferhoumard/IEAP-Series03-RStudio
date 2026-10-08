@@ -62,6 +62,16 @@ head(data_clean)
 
 #### Check repetitions
 
+```{r}
+data_clean %>% count(GROUP, REP)
+```
+
+After removing `ID3`, `ID1` and `ID2` contain the same number of observations within each group.
+
+The total number of observations differs between groups because the groups contain different numbers of participants. This does not mean that the ID data are incomplete.
+
+The next step is therefore to check whether the repetitions (`REP`) are complete within each group.
+
 
 
 
