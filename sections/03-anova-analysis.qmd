@@ -5,6 +5,7 @@ Now that we have explored and filtered the data, we can proceed with the ANOVA a
 #### Prepare the data for ANOVA
 
 To avoid giving excessive weight to repeated trials (at least 2 for each direction as indicated in the experimental design), movement time was averaged for each participant (SUBJ), group (GROUP) and index of difficulty (ID). The resulting dataset contained one mean movement time value per participant and difficulty level and was used for the subsequent statistical analysis. 
+
 #### Run the ANOVA
 
 
@@ -29,12 +30,12 @@ anova_tab
 
 **Crossed effect (GROUP × ID) : ** The interaction between GROUP and ID was the most significant (F(2, 27) = 3.45, p = 0.045). This indicates that the effect of ID on movement time differed between the three groups and was way more important on  the stroke group (pp). In other words, the difference in mean movement time between ID1 and ID2 was not the same for all groups.
 
-In conclusion, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
+**In conclusion**, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
 
 
 #### Plot the GROUP × ID interaction
 ```{r}
-#
+
 ggplot(data_final, aes(x = ID, y = MovementTime, color = GROUP)) +
   stat_summary(fun = mean, geom = "line", aes(group = GROUP)) +
   stat_summary(fun.data = mean_sdl, fun.args = list(mult = .5),
