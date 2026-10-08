@@ -23,4 +23,7 @@ anova_tab
 
 #### Interpret the ANOVA results
 
+**Group effect : ** The 3 groups (ap, cp, pp) were compared to each other. The ANOVA results showed a significant effect of GROUP on movement time (F(2, 27) = 4.23, p = 0.025). This indicates that the mean movement time differed significantly between the three groups.
+
+
 #### Plot the GROUP × ID interaction
