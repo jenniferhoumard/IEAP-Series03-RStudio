@@ -1,12 +1,116 @@
 
 ### Data preparation
 
+Before running the statistical analysis, the dataset was checked to make sure the data were complete and organized correctly.
+
+The experiment originally included:
+
+- three groups: `ap`, `cp`, and `pp`
+- three ID conditions: `ID1`, `ID2`, and `ID3`
+- up to three repetitions: `R1`, `R2`, and `R3`
+
+However, not all participants completed every ID condition and every repetition. Therefore, the dataset had to be checked for missing or incomplete conditions before creating the final dataset used for the analysis.
+
+The groups are:
+
+- `ap` = healthy adult group
+- `cp` = healthy young group
+- `pp` = stroke group
+
+
 #### Import and inspect the data
+
+The raw dataset was first imported and inspected to understand its structure, variables, and dimensions.
+
+```{r}
+data_raw <- read.table("data/Results.csv", header = TRUE)
+
+head(data_raw) # display data
+```
+```{r}
+str(data_raw) # structure of data
+```
+```{r}
+dim(data_raw) # dimension of data (rows, columns)
+```
 
 #### Check GROUP × ID completeness
 
+Next, the number of observations/rows for each combination of `GROUP` and `ID`:
+
+```{r}
+data_raw %>%
+  count(GROUP, ID)
+```
+For the `ap` group, `ID1`, `ID2`, and `ID3` each contain 740 observations. For the `cp` group, all three IDs each contain 1140 observations. This shows that the three ID conditions are complete within these two groups.
+
+For the stroke group (`pp`), `ID1` and `ID2` each contain 760 observations, while `ID3` contains only 400 observations. This shows that `ID3` is incomplete for the `pp` group because some stroke participants did not complete this condition.
+
+Therefore, `ID3` will be removed before the ANOVA analysis so that the same ID conditions are available across all three groups.
+
+
+#### Remove the incomplete ID3 condition
+
+The previous check showed that `ID3` was incomplete for the stroke group (`pp`). Therefore, all observations belonging to `ID3` were removed before continuing the analysis.
+
+```{r}
+data_clean <- data_raw %>%
+  filter(ID != "ID3")
+
+head(data_clean)
+```
+
 #### Check repetitions
+
+```{r}
+data_clean %>% count(GROUP, REP)
+```
+
+After removing `ID3`, `ID1` and `ID2` contain the same number of observations within each group.
+
+The total number of observations differs between groups because the groups contain different numbers of participants. This does not mean that the ID data are incomplete.
+
+The next step is therefore to check whether the repetitions (`REP`) are complete within each group.
+
+#### Remove the incomplete R3 repetition
+
+The previous check showed that the third repetition (`R3`) was not completed consistently across all groups. Therefore, `R3` was removed from the dataset.
+
+```{r}
+data_final <- data_clean %>% filter(REP != "R3")  #remove all rows belonging to R3
+
+head(data_final)
+```
+The number of observations was then checked again for each group and repetition:
+
+```{r}
+data_final %>% count(GROUP, REP)
+```
 
 #### Check participants by GROUP
 
+
+Finally, the number of participants in each group was checked.
+
+```{r}
+data_final %>% distinct(GROUP, SUBJ) %>% count(GROUP)
+```
+
+
 #### Create the cleaned dataset
+
+The final cleaned dataset is `data_final`.
+
+It contains:
+
+- all three groups: `ap`, `cp`, and `pp`
+- two complete ID conditions: `ID1` and `ID2`
+- two complete repetitions: `R1` and `R2`
+
+`ID3` was removed because it was incomplete for the stroke group (`pp`), and `R3` was removed because it was not completed consistently across all groups.
+
+The cleaned dataset is now ready for the statistical analysis.
+
+
+
+
