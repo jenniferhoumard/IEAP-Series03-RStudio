@@ -1,9 +1,25 @@
-
 ### ANOVA analysis
+
+Now that we have explored and filtered the data, we can proceed with the ANOVA analysis.
 
 #### Prepare the data for ANOVA
 
+To avoid giving excessive weight to repeated trials (at least 2 for each direction as indicated in the experimental design), movement time was averaged for each participant (SUBJ), group (GROUP) and index of difficulty (ID). The resulting dataset contained one mean movement time value per participant and difficulty level and was used for the subsequent statistical analysis. 
 #### Run the ANOVA
+
+
+```{r }
+
+S <- data_final|>
+  group_by(GROUP, SUBJ, ID) |>
+  summarise(MT = mean(MovementTime), .groups = "drop")
+res <- anova_test(data = S, dv = MT, wid = SUBJ,
+                  between = GROUP, within = ID)
+anova_tab <- get_anova_table(res)
+
+anova_tab
+
+```
 
 #### Interpret the ANOVA results
 

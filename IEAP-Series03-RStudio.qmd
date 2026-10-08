@@ -29,6 +29,7 @@ format:
 
 library(tidyverse)
 library(ez)
+library(rstatix)
 ```
 
 GitHub repository: <https://github.com/jenniferhoumard/IEAP-Series03-RStudio>
