@@ -1,6 +1,23 @@
 
 ### Data preparation
 
+Before running the statistical analysis, the dataset was checked to make sure the data were complete and organized correctly.
+
+The experiment originally included:
+
+- three groups: `ap`, `cp`, and `pp`
+- three ID conditions: `ID1`, `ID2`, and `ID3`
+- up to three repetitions: `R1`, `R2`, and `R3`
+
+However, not all participants completed every ID condition and every repetition. Therefore, the dataset had to be checked for missing or incomplete conditions before creating the final dataset used for the analysis.
+
+The groups are:
+
+- `ap` = healthy adult group
+- `cp` = healthy young group
+- `pp` = stroke group
+
+
 #### Import and inspect the data
 
 #### Check GROUP × ID completeness
