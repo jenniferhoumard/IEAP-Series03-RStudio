@@ -72,9 +72,25 @@ The total number of observations differs between groups because the groups conta
 
 The next step is therefore to check whether the repetitions (`REP`) are complete within each group.
 
+#### Remove the incomplete R3 repetition
+
+The previous check showed that the third repetition (`R3`) was not completed consistently across all groups. Therefore, `R3` was removed from the dataset.
+
+```{r}
+data_final <- data_clean %>% filter(REP != "R3")  #remove all rows belonging to R3
+
+head(data_final)
+```
+The number of observations was then checked again for each group and repetition:
+
+```{r}
+data_final %>% count(GROUP, REP)
+```
 
 
 
 #### Check participants by GROUP
+
+
 
 #### Create the cleaned dataset
