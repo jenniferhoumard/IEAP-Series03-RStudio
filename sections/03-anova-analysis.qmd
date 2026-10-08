@@ -32,5 +32,15 @@ anova_tab
 In conclusion, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
 
 
-
 #### Plot the GROUP × ID interaction
+```{r}
+#
+ggplot(data_final, aes(x = ID, y = MovementTime, color = GROUP)) +
+  stat_summary(fun = mean, geom = "line", aes(group = GROUP)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = .5),
+               geom = "errorbar", width = 0.01) +
+  stat_summary(fun = mean, geom = "point", shape = 21, fill = "white", size = 3) +
+  labs(title = "Interaction between GROUP and ID on MovementTime",
+       x = "ID", y = "Mean MovementTime (s)") +
+  theme_minimal()
+```
