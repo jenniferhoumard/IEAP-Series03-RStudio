@@ -31,6 +31,28 @@ The slope tells us how much Movement Time changes when ID increases.
 
 ### Regression equations
 
+For the ANOVA, `ID` was treated as a categorical variable with two conditions: `ID1` and `ID2`.
+
+For the linear regression, we need to convert the categorical `ID` variable to a numerical variable with the actual Index of Difficulty values:
+
+- `ID1` = 3.80
+- `ID2` = 5.43
+
+A new variable called `ID_numeric` is therefore created:
+
+```{r}
+regression_data <- S %>%
+  mutate(ID_numeric = case_when(ID == "ID1" ~ 3.80, ID == "ID2" ~ 5.43))
+# mutate() creates the new column `ID_numeric`.
+# case_when()` replaces each ID condition with its corresponding numerical value
+
+
+# Check that the correct numerical value was assigned to each ID
+regression_data %>% distinct(ID, ID_numeric)
+```
+
+The original `ID` column is kept, while `ID_numeric` is added for the regression analysis.
+
 
 ## Save a graph in a PDF file for publication
 
