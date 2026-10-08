@@ -1,10 +1,48 @@
-
 ### ANOVA analysis
+
+Now that we have explored and filtered the data, we can proceed with the ANOVA analysis.
 
 #### Prepare the data for ANOVA
 
+To avoid giving excessive weight to repeated trials (at least 2 for each direction as indicated in the experimental design), movement time was averaged for each participant (SUBJ), group (GROUP) and index of difficulty (ID). The resulting dataset contained one mean movement time value per participant and difficulty level and was used for the subsequent statistical analysis. 
+
 #### Run the ANOVA
+
+
+```{r }
+
+S <- data_final|>
+  group_by(GROUP, SUBJ, ID) |>
+  summarise(MT = mean(MovementTime), .groups = "drop")
+res <- anova_test(data = S, dv = MT, wid = SUBJ,
+                  between = GROUP, within = ID)
+anova_tab <- get_anova_table(res)
+
+anova_tab
+
+```
 
 #### Interpret the ANOVA results
 
+**Group effect : ** The 3 groups (ap, cp, pp) were compared to each other. The ANOVA results showed a significant effect of GROUP on movement time F(2,48) = 37.24, p < 0.001. This indicates that the mean movement time differed significantly between the three groups.
+
+**ID effect** : The two levels of ID (ID1, ID2) were compared to each other. The ANOVA results showed a significant effect of ID on movement time (F(1,48) = 26.11, p < 0.001). This indicates that the mean movement time differed significantly between the two levels of ID. When the ID increased, the movement time increased as well.
+
+**Crossed effect (GROUP × ID) : ** The interaction between GROUP and ID was the most significant (F(2,48) = 11.58, p < 0.001). This indicates that the effect of ID on movement time differed between the three groups and was way more important on  the stroke group (pp). In other words, the difference in mean movement time between ID1 and ID2 was not the same for all groups.
+
+**In conclusion**, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
+
+
 #### Plot the GROUP × ID interaction
+```{r}
+
+ggplot(data_final, aes(x = ID, y = MovementTime, color = GROUP)) +
+  stat_summary(fun = mean, geom = "line", aes(group = GROUP)) +
+  stat_summary(fun.data = mean_sdl, fun.args = list(mult = .5),
+               geom = "errorbar", width = 0.01) +
+  stat_summary(fun = mean, geom = "point", shape = 21, fill = "white", size = 3) +
+  labs(title = "Interaction between GROUP and ID on MovementTime",
+       x = "ID", y = "Mean MovementTime (s)") +
+  theme_minimal()
+```
+Graphically, we can see that a significant GROUP × ID interaction was observed, F(2,48) = 11.58, p < 0.001. As shown in the graph displayed above, movement time increased with task difficulty in all groups, but the increase was larger for the stroke group (PP) than for the healthy groups (AP and CP).
