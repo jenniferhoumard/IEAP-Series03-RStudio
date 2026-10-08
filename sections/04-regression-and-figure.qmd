@@ -139,3 +139,70 @@ publication_data$GROUP <- factor(publication_data$GROUP, levels = c("pp", "ap", 
 
 ## Export the graph as a PDF file for publication
 
+The publication graph is created using `publication_data`:
+
+```{r}
+
+# 2. Create the ggplot
+publication_plot <- ggplot(interaction_data, aes(x = ID_numeric, y = mean_MT, color = GROUP)) +
+  
+  # 3. Dashed regression lines across the full x-axis
+  geom_smooth(aes(group = GROUP), method = "lm", se = FALSE, # don't draw confidence intervals
+              fullrange = TRUE, linetype = "dashed", linewidth = 0.5) + 
+              # extend regression line beyond full range 
+  
+  # 4. Solid line connecting the two measured mean values
+  geom_line(aes(group = GROUP), linewidth = 0.6) +
+  
+  # 5. Error bars showing mean ± 0.5 SD
+  geom_errorbar(aes(ymin = mean_MT - 0.5 * sd_MT,
+                    ymax = mean_MT + 0.5 * sd_MT),
+                width = 0.08) +
+  
+  # Mean values
+  geom_point(shape = 21, fill = "white", size = 3, stroke = 1) +
+  
+  # Regression equations
+  annotate("text", x = 0.5, y = 5.5, label = "MT = -0.259 + 0.898 * ID",
+           color = "red", hjust = 0, size = 4) +
+  annotate("text", x = 0.5, y = 4.5, label = "MT = 0.372 + 0.165 * ID",
+           color = "green3", hjust = 0, size = 4) +
+  annotate("text", x = 0.5, y = 3.5, label = "MT = 0.366 + 0.123 * ID",
+           color = "blue", hjust = 0, size = 4) +
+  
+  # Axes and legend
+  scale_x_continuous(name = "ID", breaks = 0:6, limits = c(0, 6.3)) +
+  scale_y_continuous(name = "Mean Movement Time (s)", limits = c(-1.3, 6.7)) +
+  
+  # Group colors
+  scale_color_manual(values = c("pp" = "red", "ap" = "green3", "cp" = "blue")) +
+  
+  labs(color = "GROUP") +
+  theme_minimal()
+
+show(publication_plot)
+
+```
+The **solid lines** connect the measured mean values for `ID1` and `ID2`.
+
+The **dashed lines** show the linear regression for each group.
+
+The error bars show:
+
+$Mean \pm 0.5 \times SD$
+
+Larger error bars mean that the Movement Time values are more spread out around the mean.
+
+
+### Interpretation
+
+Movement Time increases with ID in all three groups, but the increase is much larger for the stroke group (`pp`). The `ap` and `cp` groups show smaller and relatively similar increases.
+
+The `pp` group also shows much greater variability in Movement Time, as indicated by its larger error bars, whereas the healthy groups have smaller error bars and more consistent values.
+
+Overall, the figure visually supports the regression results and the `GROUP × ID` interaction described previously.
+
+
+
+
+
