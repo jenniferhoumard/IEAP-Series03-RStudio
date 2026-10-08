@@ -20,7 +20,24 @@ The groups are:
 
 #### Import and inspect the data
 
+The raw dataset was first imported and inspected to understand its structure, variables, and dimensions.
+
+```{r}
+data_raw <- read.table("data/Results.csv", header = TRUE)
+
+head(data_raw) # display data
+```
+```{r}
+str(data_raw) # structure of data
+```
+```{r}
+dim(data_raw) # dimension of data (rows, columns)
+```
+
 #### Check GROUP × ID completeness
+
+
+
 
 #### Check repetitions
 
