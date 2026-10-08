@@ -25,5 +25,10 @@ anova_tab
 
 **Group effect : ** The 3 groups (ap, cp, pp) were compared to each other. The ANOVA results showed a significant effect of GROUP on movement time (F(2, 27) = 4.23, p = 0.025). This indicates that the mean movement time differed significantly between the three groups.
 
+**ID effect** : The two levels of ID (ID1, ID2) were compared to each other. The ANOVA results showed a significant effect of ID on movement time (F(1, 27) = 5.67, p = 0.024). This indicates that the mean movement time differed significantly between the two levels of ID. When the ID increased, the movement time increased as well.
+
+
+
+
 
 #### Plot the GROUP × ID interaction
