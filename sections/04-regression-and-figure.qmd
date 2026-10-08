@@ -112,10 +112,30 @@ This allows the measured data and the linear regression results to be compared v
 
 ### Create the publication figure
 
+First, the mean Movement Time and standard deviation are calculated for each `GROUP × ID` combination:
+
+```{r}
+
+publication_data <- regression_data %>% group_by(GROUP, ID_numeric) %>%
+  summarise(mean_MT = mean(MT), sd_MT = sd(MT), .groups = "drop")
+
+show(publication_data)
+
+```
+
+This creates one row for each group and ID containing:
+
+- `mean_MT` = average Movement Time
+- `sd_MT` = standard deviation of Movement Time
 
 
+`GROUP` is converted to a factor to explicitly tell R that it contains categories. The levels are ordered as `pp`, `ap`, and `cp` so that the groups appear in this same order in the graph and legend:
 
+```{r}
 
+publication_data$GROUP <- factor(publication_data$GROUP, levels = c("pp", "ap", "cp"))
+
+```
 
 ## Export the graph as a PDF file for publication
 
