@@ -56,7 +56,7 @@ GitHub repository: <https://github.com/jenniferhoumard/IEAP-Series03-RStudio>
 
 
 # Challenges and Lessons Learned
-
+Once more the challenges was to cross our different code by checking the variable names and the data structure. We also had to check the data for missing values and outliers, which was a bit tricky. But we learned a lot about data cleaning and manipulation, as well as how to perform ANOVA analysis in R. We also learned how to interpret the results and create visualizations to present our findings.
 
 # Data Sources
 
