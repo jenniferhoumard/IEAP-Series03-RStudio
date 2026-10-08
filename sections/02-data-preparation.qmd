@@ -36,8 +36,17 @@ dim(data_raw) # dimension of data (rows, columns)
 
 #### Check GROUP × ID completeness
 
+Next, the number of observations/rows for each combination of `GROUP` and `ID`.
 
+```{r}
+data_raw %>%
+  count(GROUP, ID)
+```
+For the `ap` group, `ID1`, `ID2`, and `ID3` each contain 740 observations. For the `cp` group, all three IDs each contain 1140 observations. This shows that the three ID conditions are complete within these two groups.
 
+For the stroke group (`pp`), `ID1` and `ID2` each contain 760 observations, while `ID3` contains only 400 observations. This shows that `ID3` is incomplete for the `pp` group because some stroke participants did not complete this condition.
+
+Therefore, `ID3` will be removed before the ANOVA analysis so that the same ID conditions are available across all three groups.
 
 #### Check repetitions
 
