@@ -54,6 +54,48 @@ regression_data %>% distinct(ID, ID_numeric)
 The original `ID` column is kept, while `ID_numeric` is added for the regression analysis.
 
 
+A separate linear regression is then calculated for each group:
+
+```{r}
+
+# lm = linear model, MT = y & ID_numeric = x.
+
+
+# 1. Healthy adult group
+regression_ap <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "ap")) # only keep rows where GROUP is ap
+
+# 2. Healthy young group
+regression_cp <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "cp")) # only keep rows where GROUP is "cp".
+
+# 3. Stroke group
+regression_pp <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "pp")) # only keep rows where GROUP is "pp".
+
+
+show(regression_ap)
+show(regression_cp)
+show(regression_pp)
+```
+
+For each regression:
+
+- `MT` is the Movement Time
+- `ID_numeric` is the numerical Index of Difficulty
+- `filter()` selects only one group
+
+Therefore, one regression equation is calculated separately for `ap`, `cp`, and `pp`.
+
+The regression equations are:
+
+**Healthy adults (`ap`):** $MT = 0.372 + 0.165(ID)$
+
+**Healthy young adults (`cp`):** $MT = 0.366 + 0.123(ID)$
+
+**Stroke group (`pp`):** $MT = -0.259 + 0.898(ID)$
+
+All three slopes are positive. This means that Movement Time increases when the Index of Difficulty increases.
+
+The stroke group (`pp`) has the largest slope (`0.898`). This means that Movement Time increases more strongly with difficulty in the stroke group than in the two healthy groups.
+
 ## Save a graph in a PDF file for publication
 
 ### Create the publication figure
