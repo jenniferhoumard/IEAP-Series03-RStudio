@@ -1,6 +1,34 @@
 
 ## Run the linear regression by GROUP
 
+The aim is to see how MovementTime changes when the difficulty (ID) increases, and whether this change is different between the three groups.
+
+A separate linear regression is calculated for each group:
+
+ap = healthy adults
+
+cp = healthy young adults
+
+pp = stroke group
+
+The regression equation is:
+
+$y = mx + b$
+
+$MT = a + b(ID)$
+
+where:
+
+MT = Movement Time
+
+a = intercept
+
+b = slope
+
+ID = Index of Difficulty
+
+The slope tells us how much Movement Time changes when ID increases.
+
 ### Regression equations
 
 
