@@ -87,10 +87,30 @@ The number of observations was then checked again for each group and repetition:
 data_final %>% count(GROUP, REP)
 ```
 
-
-
 #### Check participants by GROUP
 
 
+Finally, the number of participants in each group was checked.
+
+```{r}
+data_final %>% distinct(GROUP, SUBJ) %>% count(GROUP)
+```
+
 
 #### Create the cleaned dataset
+
+The final cleaned dataset is `data_final`.
+
+It contains:
+
+- all three groups: `ap`, `cp`, and `pp`
+- two complete ID conditions: `ID1` and `ID2`
+- two complete repetitions: `R1` and `R2`
+
+`ID3` was removed because it was incomplete for the stroke group (`pp`), and `R3` was removed because it was not completed consistently across all groups.
+
+The cleaned dataset is now ready for the statistical analysis.
+
+
+
+
