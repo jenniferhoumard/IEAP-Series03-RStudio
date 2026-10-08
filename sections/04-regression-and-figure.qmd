@@ -137,6 +137,25 @@ publication_data$GROUP <- factor(publication_data$GROUP, levels = c("pp", "ap", 
 
 ```
 
+The cleaned dataset contains many Movement Time measurements for each group and ID.
+
+For the final figure, these measurements are summarized so that there is one mean value for each `GROUP × ID` combination.
+
+`ID1` and `ID2` are first changed to their numerical values (`3.80` and `5.43`) so that ID can be used as a numerical variable in the regression graph.
+
+For each group and ID, the mean Movement Time and standard deviation are then calculated.
+
+The resulting `interaction_data` table contains the values needed to plot the mean points and the `Mean ± 0.5 × SD` error bars.
+
+```{r}
+interaction_data <- data_final %>%
+  mutate(ID_numeric = case_when(ID == "ID1" ~ 3.80, ID == "ID2" ~ 5.43)) %>%
+  group_by(GROUP, ID_numeric) %>%
+  summarise(mean_MT = mean(MovementTime), sd_MT = sd(MovementTime), .groups = "drop")
+
+show(interaction_data)
+```
+
 ## Export the graph as a PDF file for publication
 
 The publication graph is created using `publication_data`:
