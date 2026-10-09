@@ -1,12 +1,227 @@
 
 ## Run the linear regression by GROUP
 
+The aim is to see how MovementTime changes when the difficulty (ID) increases, and whether this change is different between the three groups.
+
+A separate linear regression is calculated for each group:
+
+ap = healthy adults
+
+cp = healthy young adults
+
+pp = stroke group
+
+The regression equation is:
+
+$y = mx + b$
+
+$MT = a + b(ID)$
+
+where:
+
+MT = Movement Time
+
+a = intercept
+
+b = slope
+
+ID = Index of Difficulty
+
+The slope tells us how much Movement Time changes when ID increases.
+
 ### Regression equations
 
+For the ANOVA, `ID` was treated as a categorical variable with two conditions: `ID1` and `ID2`.
+
+For the linear regression, we need to convert the categorical `ID` variable to a numerical variable with the actual Index of Difficulty values:
+
+- `ID1` = 3.80
+- `ID2` = 5.43
+
+A new variable called `ID_numeric` is therefore created:
+
+```{r}
+regression_data <- S %>%
+  mutate(ID_numeric = case_when(ID == "ID1" ~ 3.80, ID == "ID2" ~ 5.43))
+# mutate() creates the new column `ID_numeric`.
+# case_when()` replaces each ID condition with its corresponding numerical value
+
+
+# Check that the correct numerical value was assigned to each ID
+regression_data %>% distinct(ID, ID_numeric)
+```
+
+The original `ID` column is kept, while `ID_numeric` is added for the regression analysis.
+
+
+A separate linear regression is then calculated for each group:
+
+```{r}
+
+# lm = linear model, MT = y & ID_numeric = x.
+
+
+# 1. Healthy adult group
+regression_ap <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "ap")) # only keep rows where GROUP is ap
+
+# 2. Healthy young group
+regression_cp <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "cp")) # only keep rows where GROUP is "cp".
+
+# 3. Stroke group
+regression_pp <- lm(MT ~ ID_numeric, data = regression_data %>% filter(GROUP == "pp")) # only keep rows where GROUP is "pp".
+
+
+show(regression_ap)
+show(regression_cp)
+show(regression_pp)
+```
+
+For each regression:
+
+- `MT` is the Movement Time
+- `ID_numeric` is the numerical Index of Difficulty
+- `filter()` selects only one group
+
+Therefore, one regression equation is calculated separately for `ap`, `cp`, and `pp`.
+
+The regression equations are:
+
+**Healthy adults (`ap`):** $MT = 0.372 + 0.165(ID)$
+
+**Healthy young adults (`cp`):** $MT = 0.366 + 0.123(ID)$
+
+**Stroke group (`pp`):** $MT = -0.259 + 0.898(ID)$
+
+All three slopes are positive. This means that Movement Time increases when the Index of Difficulty increases.
+
+The stroke group (`pp`) has the largest slope (`0.898`). This means that Movement Time increases more strongly with difficulty in the stroke group than in the two healthy groups.
 
 ## Save a graph in a PDF file for publication
 
+A graph is created to show how mean Movement Time changes with ID for each group.
+
+The graph includes:
+
+- the mean Movement Time for each ID
+- one line for each group
+- error bars showing the variability
+- dashed regression lines
+- the regression equation for each group
+
+This allows the measured data and the linear regression results to be compared visually.
+
 ### Create the publication figure
 
+First, the mean Movement Time and standard deviation are calculated for each `GROUP × ID` combination:
+
+```{r}
+
+publication_data <- regression_data %>% group_by(GROUP, ID_numeric) %>%
+  summarise(mean_MT = mean(MT), sd_MT = sd(MT), .groups = "drop")
+
+show(publication_data)
+
+```
+
+This creates one row for each group and ID containing:
+
+- `mean_MT` = average Movement Time
+- `sd_MT` = standard deviation of Movement Time
+
+
+`GROUP` is converted to a factor to explicitly tell R that it contains categories. The levels are ordered as `pp`, `ap`, and `cp` so that the groups appear in this same order in the graph and legend:
+
+```{r}
+
+publication_data$GROUP <- factor(publication_data$GROUP, levels = c("pp", "ap", "cp"))
+
+```
+
+The cleaned dataset contains many Movement Time measurements for each group and ID.
+
+For the final figure, these measurements are summarized so that there is one mean value for each `GROUP × ID` combination.
+
+`ID1` and `ID2` are first changed to their numerical values (`3.80` and `5.43`) so that ID can be used as a numerical variable in the regression graph.
+
+For each group and ID, the mean Movement Time and standard deviation are then calculated.
+
+The resulting `interaction_data` table contains the values needed to plot the mean points and the `Mean ± 0.5 × SD` error bars.
+
+```{r}
+interaction_data <- data_final %>%
+  mutate(ID_numeric = case_when(ID == "ID1" ~ 3.80, ID == "ID2" ~ 5.43)) %>%
+  group_by(GROUP, ID_numeric) %>%
+  summarise(mean_MT = mean(MovementTime), sd_MT = sd(MovementTime), .groups = "drop")
+
+show(interaction_data)
+```
 
 ## Export the graph as a PDF file for publication
+
+The publication graph is created using `publication_data`:
+
+```{r}
+
+# 2. Create the ggplot
+publication_plot <- ggplot(interaction_data, aes(x = ID_numeric, y = mean_MT, color = GROUP)) +
+  
+  # 3. Dashed regression lines across the full x-axis
+  geom_smooth(aes(group = GROUP), method = "lm", se = FALSE, # don't draw confidence intervals
+              fullrange = TRUE, linetype = "dashed", linewidth = 0.5) + 
+              # extend regression line beyond full range 
+  
+  # 4. Solid line connecting the two measured mean values
+  geom_line(aes(group = GROUP), linewidth = 0.6) +
+  
+  # 5. Error bars showing mean ± 0.5 SD
+  geom_errorbar(aes(ymin = mean_MT - 0.5 * sd_MT,
+                    ymax = mean_MT + 0.5 * sd_MT),
+                width = 0.08) +
+  
+  # Mean values
+  geom_point(shape = 21, fill = "white", size = 3, stroke = 1) +
+  
+  # Regression equations
+  annotate("text", x = 0.5, y = 5.5, label = "MT = -0.259 + 0.898 * ID",
+           color = "red", hjust = 0, size = 4) +
+  annotate("text", x = 0.5, y = 4.5, label = "MT = 0.372 + 0.165 * ID",
+           color = "green3", hjust = 0, size = 4) +
+  annotate("text", x = 0.5, y = 3.5, label = "MT = 0.366 + 0.123 * ID",
+           color = "blue", hjust = 0, size = 4) +
+  
+  # Axes and legend
+  scale_x_continuous(name = "ID", breaks = 0:6, limits = c(0, 6.3)) +
+  scale_y_continuous(name = "Mean Movement Time (s)", limits = c(-1.3, 6.7)) +
+  
+  # Group colors
+  scale_color_manual(values = c("pp" = "red", "ap" = "green3", "cp" = "blue")) +
+  
+  labs(color = "GROUP") +
+  theme_minimal()
+
+show(publication_plot)
+
+```
+The **solid lines** connect the measured mean values for `ID1` and `ID2`.
+
+The **dashed lines** show the linear regression for each group.
+
+The error bars show:
+
+$Mean \pm 0.5 \times SD$
+
+Larger error bars mean that the Movement Time values are more spread out around the mean.
+
+
+### Interpretation
+
+Movement Time increases with ID in all three groups, but the increase is much larger for the stroke group (`pp`). The `ap` and `cp` groups show smaller and relatively similar increases.
+
+The `pp` group also shows much greater variability in Movement Time, as indicated by its larger error bars, whereas the healthy groups have smaller error bars and more consistent values.
+
+Overall, the figure visually supports the regression results and the `GROUP × ID` interaction described previously.
+
+
+
+
+

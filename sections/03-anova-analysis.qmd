@@ -34,6 +34,22 @@ anova_tab
 
 
 #### Plot the GROUP × ID interaction
+
+```{r}
+interaction_plot_Group_ID <- ez::ezPlot(
+  data = S,
+  dv = .(MT),
+  wid = .(SUBJ),
+  within = .(ID),
+  between = .(GROUP),
+  x = .(ID),
+  split = .(GROUP)
+)
+
+interaction_plot_Group_ID
+```
+
+
 ```{r}
 
 ggplot(data_final, aes(x = ID, y = MovementTime, color = GROUP)) +
