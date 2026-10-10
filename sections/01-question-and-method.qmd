@@ -1,16 +1,15 @@
 ## Think before coding
 
 ### Scientific question
-The main scientific question is whether the effect of task difficulty on movement time is the same across the three groups: healthy adults (ap), healthy young adults (cp), and participants with stroke (pp).
 
-We want to determine whether movement time increases with the index of difficulty (ID), and whether this increase differs between the groups.
+We want to test whether movement time increases from ID1 to ID2, and whether the size of this increase differs between groups. This corresponds to the GROUP × ID interaction effect.
 
 ### How to visualize the effect of difficulty?
-We can use an interaction plot to visualize the relationship between task difficulty and movement time. The x-axis represents the index of difficulty (ID), the y-axis represents mean movement time, and separate lines represent the three groups.
 
-If the lines have different slopes, this suggests that the effect of difficulty may differ between groups. However, the graph alone cannot tell us whether the difference is statistically significant.
+The ANOVA p-value tells us whether an effect is statistically significant, while the generalized eta-squared (GES) effect size indicates its magnitude. To identify which specific groups differ, post-hoc pairwise comparisons would be needed. These comparisons are a possible follow-up analysis and are not performed here.
 
 ### How to test whether there is a significant difference?
+
 We use a mixed-design ANOVA to examine the effects of group and difficulty on movement time.
 
 GROUP is the between-subject factor because each participant belongs to one group. ID is the within-subject factor because each participant performs both difficulty conditions included in our cleaned dataset.
@@ -18,13 +17,13 @@ GROUP is the between-subject factor because each participant belongs to one grou
 The GROUP × ID interaction is especially important. It tests whether the effect of difficulty on movement time differs between the three groups.
 
 ### How to report the results?
-We report the ANOVA results using the F-statistic, degrees of freedom, and p-value for GROUP, ID, and the GROUP × ID interaction.
 
-A significant GROUP effect indicates differences in mean movement time between groups. A significant ID effect indicates a difference in movement time between difficulty conditions. A significant GROUP × ID interaction indicates that the effect of difficulty differs between groups.
+The article uses a significance threshold of α = 0.01. Therefore, p \< 0.01 indicates a statistically significant result, whereas p ≥ 0.01 indicates that the result is not statistically significant according to this threshold.
 
-We interpret these results using the statistical output and the interaction plot.
+We report the ANOVA results using the F-statistic, degrees of freedom, p-value, and generalized eta-squared (GES) effect size for GROUP, ID, and the GROUP × ID interaction.
 
 ## What libraries are required to answer the above questions?
+
 The analysis uses the following R packages:
 
 - `tidyverse` is used to import, inspect, reorganize, and visualize the data.
