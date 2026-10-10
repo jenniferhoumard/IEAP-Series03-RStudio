@@ -1,14 +1,34 @@
 ## Think before coding
 
 ### Scientific question
+The main scientific question is whether the effect of task difficulty on movement time is the same across the three groups: healthy adults (ap), healthy young adults (cp), and participants with stroke (pp).
+
+We want to determine whether movement time increases with the index of difficulty (ID), and whether this increase differs between the groups.
 
 ### How to visualize the effect of difficulty?
+We can use an interaction plot to visualize the relationship between task difficulty and movement time. The x-axis represents the index of difficulty (ID), the y-axis represents mean movement time, and separate lines represent the three groups.
+
+If the lines have different slopes, this suggests that the effect of difficulty may differ between groups. However, the graph alone cannot tell us whether the difference is statistically significant.
 
 ### How to test whether there is a significant difference?
+We use a mixed-design ANOVA to examine the effects of group and difficulty on movement time.
+
+GROUP is the between-subject factor because each participant belongs to one group. ID is the within-subject factor because each participant performs both difficulty conditions included in our cleaned dataset.
+
+The GROUP × ID interaction is especially important. It tests whether the effect of difficulty on movement time differs between the three groups.
 
 ### How to report the results?
+We report the ANOVA results using the F-statistic, degrees of freedom, and p-value for GROUP, ID, and the GROUP × ID interaction.
 
+A significant GROUP effect indicates differences in mean movement time between groups. A significant ID effect indicates a difference in movement time between difficulty conditions. A significant GROUP × ID interaction indicates that the effect of difficulty differs between groups.
+
+We interpret these results using the statistical output and the interaction plot.
 
 ## What libraries are required to answer the above questions?
+The analysis uses the following R packages:
 
-### Packages used
+- `tidyverse` is used to import, inspect, reorganize, and visualize the data.
+- `rstatix` is used to perform the ANOVA and extract the statistical results.
+- `ez` is an additional package available for statistical analysis.
+
+These packages support the data preparation, statistical analysis, and presentation of the results.
