@@ -2,13 +2,32 @@
 
 ### Scientific question
 
+We want to test whether movement time increases from ID1 to ID2, and whether the size of this increase differs between groups. This corresponds to the GROUP × ID interaction effect.
+
 ### How to visualize the effect of difficulty?
+
+The ANOVA p-value tells us whether an effect is statistically significant, while the generalized eta-squared (GES) effect size indicates its magnitude. To identify which specific groups differ, post-hoc pairwise comparisons would be needed. These comparisons are a possible follow-up analysis and are not performed here.
 
 ### How to test whether there is a significant difference?
 
+We use a mixed-design ANOVA to examine the effects of group and difficulty on movement time.
+
+GROUP is the between-subject factor because each participant belongs to one group. ID is the within-subject factor because each participant performs both difficulty conditions included in our cleaned dataset.
+
+The GROUP × ID interaction is especially important. It tests whether the effect of difficulty on movement time differs between the three groups.
+
 ### How to report the results?
 
+The article uses a significance threshold of α = 0.01. Therefore, p \< 0.01 indicates a statistically significant result, whereas p ≥ 0.01 indicates that the result is not statistically significant according to this threshold.
+
+We report the ANOVA results using the F-statistic, degrees of freedom, p-value, and generalized eta-squared (GES) effect size for GROUP, ID, and the GROUP × ID interaction.
 
 ## What libraries are required to answer the above questions?
 
-### Packages used
+The analysis uses the following R packages:
+
+- `tidyverse` is used to import, inspect, reorganize, and visualize the data.
+- `rstatix` is used to perform the ANOVA and extract the statistical results.
+- `ez` is an additional package available for statistical analysis.
+
+These packages support the data preparation, statistical analysis, and presentation of the results.
