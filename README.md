@@ -63,11 +63,10 @@ The group used separate Git branches for each section before merging the work in
 ## References
 
 Guiard, Y., & Olafsdottir, H. B. (2011). On the measurement of movement difficulty in the
-standard approach to Fitts’ law. PLOS ONE, 6(10), e24389. https://doi.org/10.1371/jour-
-nal.pone.0024389
+standard approach to Fitts’ law. PLOS ONE, 6(10), e24389. https://doi.org/10.1371/journal.pone.0024389
 
 Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science:
-A practical primer for t-tests and ANOV
+A practical primer for t-tests and ANOVAs. Frontiers in Psychology, 4, Article 863. https://doi.org/10.3389/fpsyg.2013.00863
 
 Mottet, D., van Dokkum, L. E. H., Froger, J., Gouaïch, A., & Laffont, I. (2017). *Trajectory formation principles are the same after mild or moderate stroke*. PLOS ONE, 12(3), e0173674. https://doi.org/10.1371/journal.pone.0173674
 
