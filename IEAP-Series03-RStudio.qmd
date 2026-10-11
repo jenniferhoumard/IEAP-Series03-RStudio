@@ -12,6 +12,8 @@ date-format: "DD MMMM YYYY"
 
 format:
   pdf:
+    pdf-engine: lualatex
+    monofont: "DejaVu Sans Mono"
     toc: true
     toc-depth: 3
     number-sections: true
@@ -22,13 +24,9 @@ format:
         \setlength{\cftbeforesubsecskip}{0pt}
         \setlength{\cftbeforesubsubsecskip}{0pt}
 
-          % Allow long code lines to wrap
+               % Wrap long code lines in PDF
         \usepackage{fvextra}
-        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-          breaklines,
-          breakanywhere,
-          commandchars=\\\{\}
-        }
+        \fvset{breaklines=true,breakanywhere=true}     
 ---
 
 ```{r}
@@ -60,7 +58,7 @@ The group also discussed and brainstormed the **Challenges and Lessons Learned**
 
 ## Repository Structure
 
-```{text}
+```text
 IEAP-Series03-RStudio/
 │
 ├── IEAP-Series03-RStudio.qmd
@@ -81,7 +79,7 @@ IEAP-Series03-RStudio/
 ```
 ## Branching Strategy 
 
-```{text}
+```text
 main
 ├── 01_question_and_method
 ├── 02_data_preparation
@@ -126,15 +124,15 @@ Mottet, D., van Dokkum, L. E. H., Froger, J., Gouaïch, A., & Laffont, I. (2017)
 
 # Grading Checklist
 
-- [✓] Scientific question clearly focuses on the `GROUP × ID` interaction.
-- [✓] Data cleaning is explained, including why `ID3` and `R3` were removed.
-- [✓] Mixed-design ANOVA is run correctly and reports F, df, p-values, and `ges`.
-- [✓] Significance is interpreted using `α = 0.01`.
-- [✓] `GROUP × ID` interaction is correctly explained.
-- [✓] Separate regressions are run for `ap`, `cp`, and `pp`, with equations and slope interpretation.
-- [✓] Publication figure includes mean values, error bars, regression lines, labels, and equations.
-- [✓] Results are compared clearly with Mottet et al. (2017).
-- [✓] Limitations are discussed, including the reduced dataset and lack of post-hoc pairwise comparisons.
-- [✓] Git workflow and group responsibilities are explained.
-- [✓] Challenges and lessons learned are included.
-- [✓] Final master Quarto document renders from start to finish without errors.
+- [x] Scientific question clearly focuses on the `GROUP × ID` interaction.
+- [x] Data cleaning is explained, including why `ID3` and `R3` were removed.
+- [x] Mixed-design ANOVA is run correctly and reports F, df, p-values, and `ges`.
+- [x] Significance is interpreted using `α = 0.01`.
+- [x] `GROUP × ID` interaction is correctly explained.
+- [x] Separate regressions are run for `ap`, `cp`, and `pp`, with equations and slope interpretation.
+- [x] Publication figure includes mean values, error bars, regression lines, labels, and equations.
+- [x] Results are compared clearly with Mottet et al. (2017).
+- [x] Limitations are discussed, including the reduced dataset and lack of post-hoc pairwise comparisons.
+- [x] Git workflow and group responsibilities are explained.
+- [x] Challenges and lessons learned are included.
+- [x] Final master Quarto document renders from start to finish without errors.
