@@ -34,6 +34,52 @@ library(rstatix)
 
 GitHub repository: <https://github.com/jenniferhoumard/IEAP-Series03-RStudio>
 
+# Git Workflow Strategy
+
+The assignment is divided into separate Quarto documents so that each group member can work independently on their own branch without interfering with the work of the others.
+
+At the beginning of the project, one group member created the GitHub repository and prepared the overall Quarto structure, including the main document, section files, headings, and folder organization. This made the group work more structured and efficient from the start.
+
+Each student then worked on their assigned section in a separate branch. Once a section was completed, checked, and reviewed, the branch was merged into `main`. The master Quarto document combines all sections into the final report.
+
+| Student | Assigned Sections | Main Tasks |
+|---|---|---|
+| Jennifer Houmard | `02_data_preparation.qmd` and `04_regression_and_figure.qmd` | Data cleaning and reorganization, preparation of the final dataset, linear regression analysis, publication figure, and figure interpretation |
+| Valentin Balbine | `03_anova_analysis.qmd` | Mixed-design ANOVA, interpretation of the main effects and `GROUP × ID` interaction, and interaction visualization |
+| Shakir Nasir | `01_think_before_coding.qmd` and `05_discussion.qmd` | Scientific question, analysis strategy, required libraries, comparison with the original article, and final discussion |
+
+The group also discussed and brainstormed the **Challenges and Lessons Learned** section together so that it reflects the main difficulties encountered during the assignment and the solutions developed as a group.
+
+## Repository Structure
+
+```text
+IEAP-Series03-RStudio/
+│
+├── IEAP-Series03-RStudio.qmd
+├── README.md
+├── .gitignore
+├── LICENSE
+├── IEAP-Series03-RStudio.Rproj
+│
+├── data/
+│   └── Results.csv
+│
+└── sections/
+    ├── 01_question_and_method.qmd
+    ├── 02_data_preparation.qmd
+    ├── 03_anova_analysis.qmd
+    ├── 04_regression_and_figure.qmd
+    └── 05_discussion.qmd
+```
+## Branching Strategy 
+
+main
+├── 01_question_and_method
+├── 02_data_preparation
+├── 03_anova_analysis
+├── 04_regression_and_figure
+└── 05_discussion
+
 
 # ANOVA: Analysis of Variance
 
@@ -50,9 +96,6 @@ GitHub repository: <https://github.com/jenniferhoumard/IEAP-Series03-RStudio>
 {{< include sections/04-regression-and-figure.qmd >}}
 
 {{< include sections/05-discussion.qmd >}}
-
-
-# Git Workflow Strategy
 
 
 # Challenges and Lessons Learned
