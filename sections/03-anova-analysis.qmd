@@ -8,7 +8,6 @@ To avoid giving excessive weight to repeated trials (at least 2 for each directi
 
 #### Run the ANOVA
 
-
 ```{r }
 
 S <- data_final|>
@@ -24,11 +23,17 @@ anova_tab
 
 #### Interpret the ANOVA results
 
-**Group effect : ** The 3 groups (ap, cp, pp) were compared to each other. The ANOVA results showed a significant effect of GROUP on movement time F(2,48) = 37.24, p < 0.001. This indicates that the mean movement time differed significantly between the three groups.
+**Group effect** : The 3 groups (ap, cp, pp) were compared to each other. The ANOVA results showed a significant effect of GROUP on movement time F(2,48) = 37.24, p < 0.001. This indicates that the mean movement time differed significantly between the three groups.
 
 **ID effect** : The two levels of ID (ID1, ID2) were compared to each other. The ANOVA results showed a significant effect of ID on movement time (F(1,48) = 26.11, p < 0.001). This indicates that the mean movement time differed significantly between the two levels of ID. When the ID increased, the movement time increased as well.
 
-**Crossed effect (GROUP × ID) : ** The interaction between GROUP and ID was the most significant (F(2,48) = 11.58, p < 0.001). This indicates that the effect of ID on movement time differed between the three groups and was way more important on  the stroke group (pp). In other words, the difference in mean movement time between ID1 and ID2 was not the same for all groups.
+**Crossed effect (GROUP × ID)** : The interaction between GROUP and ID was the most significant (F(2,48) = 11.58, p < 0.001). This indicates that the effect of ID on movement time differed between the three groups and was way more important on the stroke group (pp). In other words, the difference in mean movement time between ID1 and ID2 was not the same for all groups.
+
+**Effect size (ges)**: In addition to the p-value, the ANOVA reports generalized eta squared (`ges`) as an effect size. While the p-value tells us whether an effect is statistically significant, `ges` gives information about the magnitude of the overall effect (Lakens, 2013).
+
+- `GROUP`: ges = 0.575
+- `ID`: ges = 0.066
+- `GROUP × ID`: ges = 0.059
 
 **In conclusion**, the effect of difficulty is not the same for all groups, and the effect of group is not the same for all levels of difficulty. This suggests that the relationship between movement time and difficulty level is influenced by the group to which participants belong.
 
@@ -61,4 +66,5 @@ ggplot(data_final, aes(x = ID, y = MovementTime, color = GROUP)) +
        x = "ID", y = "Mean MovementTime (s)") +
   theme_minimal()
 ```
-Graphically, we can see that a significant GROUP × ID interaction was observed, F(2,48) = 11.58, p < 0.001. As shown in the graph displayed above, movement time increased with task difficulty in all groups, but the increase was larger for the stroke group (PP) than for the healthy groups (AP and CP).
+
+Graphically, we can see that a significant GROUP × ID interaction was observed, F(2,48) = 11.58, p < 0.001. As shown in the graph displayed above, movement time increased with task difficulty in all groups, but the increase was larger for the stroke group (pp) than for the healthy groups (ap and cp).

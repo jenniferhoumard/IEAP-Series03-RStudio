@@ -1,14 +1,14 @@
 ## Run the linear regression by GROUP
 
-The aim is to see how MovementTime changes when the difficulty (ID) increases, and whether this change is different between the three groups.
+The aim is to see how Movement Time changes when the difficulty (ID) increases, and whether this change is different between the three groups.
 
 A separate linear regression is calculated for each group:
 
-ap = healthy adults
+- `ap` = healthy adults
 
-cp = healthy young adults
+- `cp` = healthy young adults
 
-pp = stroke group
+- `pp` = stroke group
 
 The regression equation is:
 
@@ -18,17 +18,19 @@ $MT = a + b(ID)$
 
 where:
 
-MT = Movement Time
+- `MT` = Movement Time
 
-a = intercept
+- `a` = intercept
 
-b = slope
+- `b` = slope
 
-ID = Index of Difficulty
+- `ID` = Index of Difficulty
 
 The slope tells us how much Movement Time changes when ID increases.
 
 ### Regression equations
+
+According to Fitts' law, Movement Time increases approximately linearly as the Index of Difficulty increases (Guiard & Olafsdottir, 2011).
 
 For the ANOVA, `ID` was treated as a categorical variable with two conditions: `ID1` and `ID2`.
 
