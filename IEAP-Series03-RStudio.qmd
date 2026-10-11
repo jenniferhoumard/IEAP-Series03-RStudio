@@ -52,15 +52,15 @@ Each student then worked on their assigned section in a separate branch. Once a 
 
 | Student | Assigned Sections | Main Tasks |
 |---|---|---|
-| Jennifer Houmard | `02_data_preparation.qmd` and `04_regression_and_figure.qmd` | Data cleaning and reorganization, preparation of the final dataset, linear regression analysis, publication figure, and figure interpretation |
-| Valentin Balbine | `03_anova_analysis.qmd` | Mixed-design ANOVA, interpretation of the main effects and `GROUP × ID` interaction, and interaction visualization |
-| Shakir Nasir | `01_think_before_coding.qmd` and `05_discussion.qmd` | Scientific question, analysis strategy, required libraries, comparison with the original article, and final discussion |
+| Jennifer Houmard | 02_data_preparation.qmd and 04_regression_and_figure.qmd | Data cleaning and reorganization, preparation of the final dataset, linear regression analysis, publication figure, and figure interpretation |
+| Valentin Balbine | 03_anova_analysis.qmd | Mixed-design ANOVA, interpretation of the main effects and `GROUP × ID` interaction, and interaction visualization |
+| Shakir Nasir | 01_question_and_method.qmd and 05_discussion.qmd | Scientific question, analysis strategy, required libraries, comparison with the original article, and final discussion |
 
 The group also discussed and brainstormed the **Challenges and Lessons Learned** section together so that it reflects the main difficulties encountered during the assignment and the solutions developed as a group.
 
 ## Repository Structure
 
-```text
+```{text}
 IEAP-Series03-RStudio/
 │
 ├── IEAP-Series03-RStudio.qmd
@@ -81,7 +81,7 @@ IEAP-Series03-RStudio/
 ```
 ## Branching Strategy 
 
-```text
+```{text}
 main
 ├── 01_question_and_method
 ├── 02_data_preparation
