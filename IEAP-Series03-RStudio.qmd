@@ -115,3 +115,18 @@ Overall, these challenges helped us improve our understanding of data cleaning a
 
 
 # Grading Checklist
+
+# Grading Checklist
+
+- [✓] Scientific question clearly focuses on the `GROUP × ID` interaction.
+- [✓] Data cleaning is explained, including why `ID3` and `R3` were removed.
+- [✓] Mixed-design ANOVA is run correctly and reports F, df, p-values, and `ges`.
+- [✓] Significance is interpreted using `α = 0.01`.
+- [✓] `GROUP × ID` interaction is correctly explained.
+- [✓] Separate regressions are run for `ap`, `cp`, and `pp`, with equations and slope interpretation.
+- [✓] Publication figure includes mean values, error bars, regression lines, labels, and equations.
+- [✓] Results are compared clearly with Mottet et al. (2017).
+- [✓] Limitations are discussed, including the reduced dataset and lack of post-hoc pairwise comparisons.
+- [✓] Git workflow and group responsibilities are explained.
+- [✓] Challenges and lessons learned are included.
+- [✓] Final master Quarto document renders from start to finish without errors.
