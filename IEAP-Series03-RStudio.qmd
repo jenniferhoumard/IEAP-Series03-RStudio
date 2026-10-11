@@ -49,7 +49,7 @@ At the beginning of the project, one group member created the GitHub repository 
 Each student then worked on their assigned section in a separate branch. Once a section was completed, checked, and reviewed, the branch was merged into `main`. The master Quarto document combines all sections into the final report.
 
 | Student | Assigned Sections | Main Tasks |
-|---|---|---|
+|----|----|----|
 | Jennifer Houmard | 02_data_preparation.qmd and 04_regression_and_figure.qmd | Data cleaning and reorganization, preparation of the final dataset, linear regression analysis, publication figure, and figure interpretation |
 | Valentin Balbine | 03_anova_analysis.qmd | Mixed-design ANOVA, interpretation of the main effects and `GROUP × ID` interaction, and interaction visualization |
 | Shakir Nasir | 01_question_and_method.qmd and 05_discussion.qmd | Scientific question, analysis strategy, required libraries, comparison with the original article, and final discussion |
@@ -58,7 +58,7 @@ The group also discussed and brainstormed the **Challenges and Lessons Learned**
 
 ## Repository Structure
 
-```text
+``` text
 IEAP-Series03-RStudio/
 │
 ├── IEAP-Series03-RStudio.qmd
@@ -77,9 +77,10 @@ IEAP-Series03-RStudio/
     ├── 04_regression_and_figure.qmd
     └── 05_discussion.qmd
 ```
-## Branching Strategy 
 
-```text
+## Branching Strategy
+
+``` text
 main
 ├── 01_question_and_method
 ├── 02_data_preparation
@@ -92,18 +93,15 @@ main
 
 {{< include sections/01-question-and-method.qmd >}}
 
-
 ## Data reorganization
 
 {{< include sections/02-data-preparation.qmd >}}
 
 {{< include sections/03-anova-analysis.qmd >}}
 
-
 {{< include sections/04-regression-and-figure.qmd >}}
 
 {{< include sections/05-discussion.qmd >}}
-
 
 # Challenges and Lessons Learned
 
@@ -117,6 +115,9 @@ Overall, these challenges helped us improve our understanding of data cleaning a
 
 # Data Sources
 
+The dataset used in this analysis was provided for the IEAP RStudio Series 03 assignment. It contains movement-time measurements from healthy adults, healthy young adults, and participants with stroke.
+
+Scientific article: Mottet, D., van Dokkum, L. E. H., Froger, J., Gouaïch, A., & Laffont, I. (2017). *Trajectory formation principles are the same after mild or moderate stroke*. PLOS ONE, 12(3), e0173674. https://doi.org/10.1371/journal.pone.0173674
 
 # Scientific References
 
