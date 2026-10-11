@@ -113,8 +113,7 @@ Overall, these challenges helped us improve our understanding of data cleaning a
 
 # Scientific References
 
-
-# Grading Checklist
+Mottet, D., van Dokkum, L. E. H., Froger, J., Gouaïch, A., & Laffont, I. (2017). Trajectory formation principles are the same after mild or moderate stroke. PLOS ONE, 12(3), e0173674. https://doi.org/10.1371/journal.pone.0173674
 
 # Grading Checklist
 
