@@ -1,4 +1,3 @@
-
 ## Run the linear regression by GROUP
 
 The aim is to see how MovementTime changes when the difficulty (ID) increases, and whether this change is different between the three groups.
@@ -52,7 +51,6 @@ regression_data %>% distinct(ID, ID_numeric)
 ```
 
 The original `ID` column is kept, while `ID_numeric` is added for the regression analysis.
-
 
 A separate linear regression is then calculated for each group:
 
@@ -128,7 +126,6 @@ This creates one row for each group and ID containing:
 - `mean_MT` = average Movement Time
 - `sd_MT` = standard deviation of Movement Time
 
-
 `GROUP` is converted to a factor to explicitly tell R that it contains categories. The levels are ordered as `pp`, `ap`, and `cp` so that the groups appear in this same order in the graph and legend:
 
 ```{r}
@@ -202,6 +199,7 @@ publication_plot <- ggplot(interaction_data, aes(x = ID_numeric, y = mean_MT, co
 show(publication_plot)
 
 ```
+
 The **solid lines** connect the measured mean values for `ID1` and `ID2`.
 
 The **dashed lines** show the linear regression for each group.
@@ -212,7 +210,6 @@ $Mean \pm 0.5 \times SD$
 
 Larger error bars mean that the Movement Time values are more spread out around the mean.
 
-
 ### Interpretation
 
 Movement Time increases with ID in all three groups, but the increase is much larger for the stroke group (`pp`). The `ap` and `cp` groups show smaller and relatively similar increases.
@@ -220,8 +217,3 @@ Movement Time increases with ID in all three groups, but the increase is much la
 The `pp` group also shows much greater variability in Movement Time, as indicated by its larger error bars, whereas the healthy groups have smaller error bars and more consistent values.
 
 Overall, the figure visually supports the regression results and the `GROUP × ID` interaction described previously.
-
-
-
-
-
