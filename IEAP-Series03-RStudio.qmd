@@ -99,7 +99,14 @@ main
 
 
 # Challenges and Lessons Learned
-Once more the challenges was to cross our different code by checking the variable names and the data structure. We also had to check the data for missing values and outliers, which was a bit tricky. But we learned a lot about data cleaning and manipulation, as well as how to perform ANOVA analysis in R. We also learned how to interpret the results and create visualizations to present our findings.
+
+One challenge was cleaning the original dataset before performing the statistical analysis. We had to check whether all groups had completed the same ID conditions and repetitions. We found that `ID3` was incomplete for the stroke group and that `R3` was not completed consistently across all groups. We therefore had to decide how to reorganize the data so that the comparisons between groups were based on the same conditions.
+
+We also had to distinguish between the different levels of data used in the analysis. The ANOVA and regression required participant-level mean Movement Time values, while the publication figure used the cleaned trial-level data to calculate the mean and standard deviation for each `GROUP × ID` combination. Understanding why different summarized datasets were needed was initially confusing but helped us better understand how the structure of the data depends on the purpose of the analysis.
+
+Creating the final publication figure was also challenging. We had to make sure that the means, standard deviations, regression lines, and error bars were calculated from the correct dataset. This required checking the data structure carefully and understanding why using participant-level data or trial-level data produced different error bars.
+
+Overall, these challenges helped us improve our understanding of data cleaning and manipulation in R, mixed-design ANOVA, regression analysis, effect sizes, statistical interpretation, data visualization, and collaborative work using Git and GitHub.
 
 # Data Sources
 
