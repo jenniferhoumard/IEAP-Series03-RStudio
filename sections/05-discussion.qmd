@@ -1,6 +1,25 @@
-
 ## Discuss the differences with the article
 
 ### Comparison with the article
 
+Our analysis aimed to reproduce the main findings of Mottet et al. (2017), who studied movement time in healthy young adults, healthy age-matched adults, and participants with stroke.
+
+Our mixed-design ANOVA showed a significant effect of GROUP, F(2, 48) = 37.24, p \< 0.001, GES = 0.575, and ID, F(1, 48) = 26.11, p \< 0.001, GES = 0.066. The GROUP × ID interaction was also significant, F(2, 48) = 11.58, p \< 0.001, GES = 0.059. All three p-values were below our significance threshold of α = 0.01. The results indicate that movement time differed between groups, increased with difficulty, and that the increase was not the same across all three groups.
+
+The regression analysis showed positive slopes in all three groups, with the steepest slope in the stroke group. The detailed comparison with the original article is presented below.
+
+The original article by Mottet et al. (2017) also found a significant effect of GROUP on movement time, F(2, 48) = 35.32, p \< 0.001, and a significant effect of ID, F(1, 48) = 5.42, p \< 0.001. The GROUP × ID interaction was also significant, F(2, 48) = 10.02, p \< 0.001. The authors reported Fitts's law slopes of 0.118 for age-matched controls, 0.097 for young controls, and 0.672 for participants with stroke.
+
+Our regression slopes were 0.165 for healthy adults (ap), 0.123 for healthy young adults (cp), and 0.898 for the stroke group (pp). In both analyses, the stroke group had the steepest slope, showing a stronger increase in movement time with difficulty. However, our slope estimates were higher than those reported in the article. This difference may reflect the simpler analysis and reduced dataset used in our assignment, so the numerical values should not be interpreted as directly equivalent. Despite these differences, both analyses show the same overall pattern: movement time increases with difficulty, and this relationship is stronger in participants with stroke.
+
+However, our analysis is simpler than the original study. We retained only ID1 and ID2 because ID3 was incomplete for the stroke group, and we removed R3 because it was not completed consistently across all groups. We then averaged movement time for each participant and difficulty condition. The original article considered additional task factors, including movement direction and orientation, and used post-hoc comparisons to examine differences between groups.
+
+Therefore, our results support a similar general pattern, but the numerical results cannot be compared directly because the analyses differ. In addition, we did not perform post-hoc pairwise comparisons, so we cannot determine from our ANOVA alone which specific pairs of groups differ significantly.
+
 ### Conclusion
+
+Our analysis showed that movement time increased with task difficulty and differed between the three groups. The significant GROUP × ID interaction indicates that the effect of difficulty was not the same across all groups. Both the ANOVA and the regression graph showed a larger increase in movement time in the stroke group.
+
+These findings are consistent with the main conclusion of Mottet et al. (2017). Although our analysis used a reduced dataset and a simpler approach, it showed the same overall pattern as the original article. The regression slopes were higher in our analysis, especially in the stroke group, but the overall relationship between movement time and task difficulty was similar. Further pairwise comparisons would be needed to determine exactly which groups differ significantly from one another.
+
+Overall, this assignment helped us understand how to clean and reorganize movement data, perform a mixed-design ANOVA, calculate group-specific linear regressions, visualize the results, and compare our findings with published research.
