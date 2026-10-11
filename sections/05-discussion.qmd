@@ -4,7 +4,7 @@
 
 Our analysis aimed to reproduce the main findings of Mottet et al. (2017), who studied movement time in healthy young adults, healthy age-matched adults, and participants with stroke.
 
-Our mixed-design ANOVA showed a significant effect of GROUP, F(2, 48) = 37.24, p \< 0.001, and ID, F(1, 48) = 26.11, p \< 0.001. The GROUP × ID interaction was also significant, F(2, 48) = 11.58, p \< 0.001. These results indicate that movement time differed between groups, increased with difficulty, and that the increase was not the same across all three groups.
+Our mixed-design ANOVA showed a significant effect of GROUP, F(2, 48) = 37.24, p \< 0.001, GES = 0.575, and ID, F(1, 48) = 26.11, p \< 0.001, GES = 0.066. The GROUP × ID interaction was also significant, F(2, 48) = 11.58, p \< 0.001, GES = 0.059. All three p-values were below our significance threshold of α = 0.01. The results indicate that movement time differed between groups, increased with difficulty, and that the increase was not the same across all three groups.
 
 The regression analysis showed positive slopes in all three groups, with the steepest slope in the stroke group. The detailed comparison with the original article is presented below.
 
