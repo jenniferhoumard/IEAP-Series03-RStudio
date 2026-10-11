@@ -21,6 +21,14 @@ format:
         \setlength{\cftbeforesecskip}{2pt}
         \setlength{\cftbeforesubsecskip}{0pt}
         \setlength{\cftbeforesubsubsecskip}{0pt}
+
+          % Allow long code lines to wrap
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          breaklines,
+          breakanywhere,
+          commandchars=\\\{\}
+        }
 ---
 
 ```{r}
@@ -73,13 +81,14 @@ IEAP-Series03-RStudio/
 ```
 ## Branching Strategy 
 
+```text
 main
 ├── 01_question_and_method
 ├── 02_data_preparation
 ├── 03_anova_analysis
 ├── 04_regression_and_figure
 └── 05_discussion
-
+```
 
 # ANOVA: Analysis of Variance
 
